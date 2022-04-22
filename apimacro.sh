@@ -61,9 +61,14 @@ echo $HEADERS
 
 FIRST=${HEADERS%%,*}
 CMD=${HEADERS##*,}
+full_path=$(realpath $0)
+#echo $full_path
+dir_path=$(dirname $full_path)
+#echo $dir_path
+
 
 if [[ ! -f "./apimacro/${CMD}.sh" ]]; then
-  echo "command '${CMD}' not exist in Path: $(pwd)/apimacro/${CMD}.sh"
+  echo "command '${CMD}' not exist in Path: $dir_path/apimacro/${CMD}.sh"
   exit
 fi
 
@@ -75,7 +80,7 @@ for object in $OBJECT_LIST; do
   ((i++))
   [ $i = 1 ] && continue
   #url="$object"
-  RUNS="./apimacro/${CMD}.sh ${object}"
+  RUNS="$dir_path/apimacro/${CMD}.sh ${object}"
   #echo $RUNS
   RUN=$($RUNS)
   #echo $RUN
