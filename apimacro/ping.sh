@@ -1,1 +1,1 @@
-ping $1 ; echo $?
+ping -c 1 -q -n 3 -i 0.5 $1 ; echo $
