@@ -65,10 +65,11 @@ full_path=$(realpath $0)
 #echo $full_path
 dir_path=$(dirname $full_path)
 #echo $dir_path
+SCRIPT=$dir_path/apimacro/${CMD}.sh
 
 
-if [[ ! -f "./apimacro/${CMD}.sh" ]]; then
-  echo "command '${CMD}' not exist in Path: $dir_path/apimacro/${CMD}.sh"
+if [[ ! -f "${SCRIPT}" ]]; then
+  echo "command '${CMD}' not exist in Path: ${SCRIPT}"
   exit
 fi
 
@@ -80,7 +81,7 @@ for object in $OBJECT_LIST; do
   ((i++))
   [ $i = 1 ] && continue
   #url="$object"
-  RUNS="$dir_path/apimacro/${CMD}.sh ${object}"
+  RUNS="${SCRIPT} ${object}"
   #echo $RUNS
   RUN=$($RUNS)
   #echo $RUN
