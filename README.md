@@ -27,6 +27,44 @@ The same, with separated details, run macro for 1/in.csv
 ./apimacro.sh "1/in.csv" "1/out.csv" "1/status.csv"
 ```
 
+filtering 
+3/in.csv
+```bash
+./apimacro.sh 3
+```
+
+# Filtering
+
+now the filtering is possible with external bash script:
+Headers in CSV:
+
+1. data column
+2. bash script commmand name
+3. First filter name 
+4. First filter value 
+5. Second filter name 
+6. Second filter value 
+
+Examples
+    
+    http_status_code,equal,200
+    http_status_code,not_equal,200
+    http_status_code,more_than,200,less_than,300
+    http_status_code,remove-duplicates
+
+
+# TODO
++ Clear input data from CSV: 
+```  
+" 
+[space]
+```
+
+
+will be good use some standrds such xpath or another to create more advanced examples
+format for filtering
+
+    http_status_code(http_status_code!=200 && http_status_code!=300)
 
 ---
 
