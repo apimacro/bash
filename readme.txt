@@ -1,0 +1,7 @@
+./DOCS/MENU.md
+./DOCS/START.md
+./DOCS/INSTALL.md
+./DOCS/EXAMPLES.md
+./DOCS/DOCS.md
+./DOCS/TODO.md
+./DOCS/FOOT.md
